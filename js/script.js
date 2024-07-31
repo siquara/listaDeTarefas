@@ -9,7 +9,7 @@ function salvarDadosNoStorage() {
   localStorage.setItem("tarefas", JSON.stringify(tarefasListadas));
 }
 
-function criarLista(novaTarefa){
+function criarLista(novaTarefa) {
   // Adcionando as classes do bootstrap para o elemento LI
   novaTarefa.classList.add(
     "list-group-item",
@@ -20,7 +20,7 @@ function criarLista(novaTarefa){
   listaOl.appendChild(novaTarefa);
 }
 
-function click(novaTarefa){
+function click(novaTarefa) {
   novaTarefa.addEventListener("click", () => {
     novaTarefa.classList.add(
       "text-muted",
@@ -46,15 +46,15 @@ function removerSpans() {
 for (let i = 0; i < tarefasListadas.length; i++) {
   const novaTarefa = document.createElement("li");
   novaTarefa.innerHTML = tarefasListadas[i];
-  criarLista(novaTarefa)
-  click(novaTarefa)
+  criarLista(novaTarefa);
+  click(novaTarefa);
 }
 
 document.getElementById("botaoCadastrar").addEventListener("click", () => {
   if (input.value !== "") {
     const novaTarefa = document.createElement("li");
     tarefasListadas.push(input.value);
-    criarLista(novaTarefa)
+    criarLista(novaTarefa);
 
     // Adicionando o valor do input no elemento LI
     novaTarefa.innerHTML = input.value;
@@ -63,7 +63,7 @@ document.getElementById("botaoCadastrar").addEventListener("click", () => {
     input.value = "";
 
     // Adiciona eventos de click e duplo click
-    click(novaTarefa)
+    click(novaTarefa);
 
     // Limpar mensagens de erro caso existam
     removerSpans();
@@ -80,7 +80,3 @@ document.getElementById("botaoCadastrar").addEventListener("click", () => {
     card.appendChild(span);
   }
 });
-
-
-
-
