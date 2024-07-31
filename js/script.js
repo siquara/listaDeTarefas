@@ -50,7 +50,7 @@ for (let i = 0; i < tarefasListadas.length; i++) {
   click(novaTarefa);
 }
 
-document.getElementById("botaoCadastrar").addEventListener("click", () => {
+function criarNovaTarefa() {
   if (input.value !== "") {
     const novaTarefa = document.createElement("li");
     tarefasListadas.push(input.value);
@@ -78,5 +78,15 @@ document.getElementById("botaoCadastrar").addEventListener("click", () => {
     let msg = document.createTextNode("Você precisa informar a tarefa!");
     span.appendChild(msg);
     card.appendChild(span);
+  }
+}
+
+// Evento de clique no botão de cadastrar
+document.getElementById("botaoCadastrar").addEventListener("click", criarNovaTarefa);
+
+// Evento de pressionar a tecla Enter no campo de entrada
+input.addEventListener("keypress", (event) => {
+  if (event.key === "Enter") {
+    criarNovaTarefa();
   }
 });
